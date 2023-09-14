@@ -20,13 +20,15 @@ export async function POST(req: Request) {
       messages: [
           {
               role: 'user',
-              content: `Generate 2 ${vibe} Song Lyrics and clearly labeled "1." and "2.". ${
+              content: `Génère 2 paroles de chanson ${vibe} clairement étiquetées "1." et "2.". ${
                   vibe === 'Rap'
-                      ? 'Make sure the lyrics include references to the rap culture'
+                      ? 'Assure-toi que les paroles contiennent des références à la culture rap'
                       : null
               }
 
-          Make sure each generated lyrics have a structure of Chorus, Verse 1, Chorus, Verse 2, Chorus, Bridge, Chorus, and base them on this context: ${bio}${
+            Tu ne parles qu'en Français.
+            Assure-toi que chaque parole générée ait une structure comprenant : Refrain, Couplet 1, Refrain, Couplet 2, Refrain, Pont, Refrain.
+            Tu dois obligatoirement ajouter des mots dans la liste suivante ${bio}${
                   bio.slice(-1) === '.' ? '' : '.'
               }`,
           },

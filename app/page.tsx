@@ -146,14 +146,16 @@ export default function Page() {
                                                       generatedBio
                                                   );
                                                   toast(
-                                                      'Bio copied to clipboard',
+                                                      'Lyrics copied to clipboard',
                                                       {
                                                           icon: '✂️',
                                                       }
                                                   );
                                               }}
                                               key={generatedBio}>
-                                              <p>{generatedBio}</p>
+                                              <p className="text-left">
+                                                  {generatedBio}
+                                              </p>
                                           </div>
                                       );
                                   })}
