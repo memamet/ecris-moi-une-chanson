@@ -15,21 +15,22 @@ export async function POST(req: Request) {
 
   // Ask OpenAI for a streaming completion given the prompt
   const response = await openai.createChatCompletion({
-    model: 'gpt-3.5-turbo',
-    stream: true,
-    messages: [
-      {
-        role: 'user',
-        content: `Generate 2 ${vibe} twitter biographies with no hashtags and clearly labeled "1." and "2.". ${
-          vibe === 'Funny'
-            ? "Make sure there is a joke in there and it's a little ridiculous."
-            : null
-        }
-          Make sure each generated biography is less than 160 characters, has short sentences that are found in Twitter bios, and base them on this context: ${bio}${
-          bio.slice(-1) === '.' ? '' : '.'
-        }`,
-      },
-    ],
+      model: 'gpt-3.5-turbo',
+      stream: true,
+      messages: [
+          {
+              role: 'user',
+              content: `Generate 2 ${vibe} Song Lyrics and clearly labeled "1." and "2.". ${
+                  vibe === 'Rap'
+                      ? 'Make sure the lyrics include references to the rap culture'
+                      : null
+              }
+
+          Make sure each generated lyrics have a structure of Chorus, Verse 1, Chorus, Verse 2, Chorus, Bridge, Chorus, and base them on this context: ${bio}${
+                  bio.slice(-1) === '.' ? '' : '.'
+              }`,
+          },
+      ],
   });
 
   // Convert the response into a friendly text-stream
