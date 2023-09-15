@@ -25,35 +25,31 @@ export async function POST(req: Request) {
               content: `Dans ce contexte: 
               ${bio}${bio.slice(-1) === '.' ? '' : '.'}.
               Générez une chanson qui évoque ${vibe}.
-            
 
-une ligne maximum
+              Assurez-vous que la chanson suive la structure suivante.
 
-              `,
-              // Assurez-vous que la chanson suive la structure suivante.
+              TITRE: Le hook principale de la chanson
 
-              // TITRE: Le hook principale de la chanson
+              Couplet1 : Quel est le problème, la tension ou le conflit dans cette chanson ? Comment cela définit-il le TITRE ?
 
-              // Couplet1 : Quel est le problème, la tension ou le conflit dans cette chanson ? Comment cela définit-il le TITRE ?
+              Refrain: Reprend le TITRE avec des mots simples
 
-              // Refrain: Reprend le TITRE avec des mots simples
+              Couplet 2: Quelle est l'escalade du problème,
+              tension ou conflit ? Quelle est la conséquence de la première
+              problème? configurer le TITRE à partir d'un
+              angle différent.
 
-              // Couplet 2: Quelle est l'escalade du problème,
-              // tension ou conflit ? Quelle est la conséquence de la première
-              // problème? configurer le TITRE à partir d'un
-              // angle différent.
+              Refrain
 
-              // Refrain
+              Couplet 3: Quelle est l’escalade finale du conflit ?
+              Quelle est une autre façon de penser à cela ?
+              Si les sections précédentes étaient au passé,
+              quel est le moment présent ? En quoi est-ce différent
+              que le passé ?
+              Comment cela configure-t-il le TITRE qui est différent
+              des sections 1 et 2 ?
 
-              // Couplet 3: Quelle est l’escalade finale du conflit ?
-              // Quelle est une autre façon de penser à cela ?
-              // Si les sections précédentes étaient au passé,
-              // quel est le moment présent ? En quoi est-ce différent
-              // que le passé ?
-              // Comment cela configure-t-il le TITRE qui est différent
-              // des sections 1 et 2 ?
-
-              // Refrain
+              Refrain`,
           },
       ],
   });
