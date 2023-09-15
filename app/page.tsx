@@ -201,10 +201,13 @@ export default function Page() {
                                         });
                                     }}
                                     key={generatedBios}>
-                                    <h1>TITRE: {lyrics.title}</h1>
+                                    <h3 className="sm:text-2xl text-xl font-bold text-slate-900 mx-auto">
+                                        {lyrics.title}
+                                    </h3>
+                                    <br />
                                     {lyrics.sections.map((section, idx) => (
                                         <div key={idx} className="section">
-                                            <h2 className="text-left">
+                                            <h2 className="text-left text-slate-900 font-bold">
                                                 {section.name}
                                             </h2>
                                             {section.lines.map(
@@ -216,6 +219,7 @@ export default function Page() {
                                                     </p>
                                                 )
                                             )}
+                                            <br />
                                         </div>
                                     ))}
                                 </div>
