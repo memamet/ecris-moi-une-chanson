@@ -11,7 +11,9 @@ import { useChat } from 'ai/react';
 
 export default function Page() {
   const [bio, setBio] = useState('');
-  const [vibe, setVibe] = useState<VibeType>('Rap');
+  const [vibe, setVibe] = useState<VibeType>(
+      'La beauté et la tranquillité de la nature.'
+  );
   const bioRef = useRef<null | HTMLDivElement>(null);
 
   const scrollToBios = () => {
@@ -46,7 +48,7 @@ export default function Page() {
           <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
               <a
                   className="flex max-w-fit items-center justify-center space-x-2 rounded-full border border-gray-300 bg-white px-4 py-2 text-sm text-gray-600 shadow-md transition-colors hover:bg-gray-100 mb-5"
-                  href="https://github.com/Nutlope/twitterbio"
+                  href="https://github.com/memamet/ecris-moi-une-chanson"
                   target="_blank"
                   rel="noopener noreferrer">
                   <Github />
@@ -68,7 +70,8 @@ export default function Page() {
                           className="mb-5 sm:mb-0"
                       />
                       <p className="text-left font-medium">
-                          Écrivez quelques phrases pour décrire votre chanson.
+                          Où se situe votre chanson et de quoi voulez-vous
+                          parler ?
                       </p>
                   </div>
                   <textarea
@@ -76,9 +79,7 @@ export default function Page() {
                       onChange={handleInputChange}
                       rows={4}
                       className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
-                      placeholder={
-                          'Plage surf septembre coupe du monde de rugby XV de France'
-                      }
+                      placeholder={'Ex: Plage / Rugby / Montagne / Métro'}
                   />
                   <div className="flex mb-5 items-center space-x-3">
                       <Image
@@ -88,7 +89,7 @@ export default function Page() {
                           alt="1 icon"
                       />
                       <p className="text-left font-medium">
-                          Sélectionnez votre ambiance.
+                          Sélectionnez votre intention
                       </p>
                   </div>
                   <div className="block">

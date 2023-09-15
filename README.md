@@ -1,6 +1,4 @@
-# [twitterbio.io](https://www.twitterbio.io/)
-
-This project generates Twitter bios for you using AI.
+# This project generates song lyrics for you using AIx
 
 [![Twitter Bio Generator](./public/screenshot.png)](https://www.twitterbio.io)
 

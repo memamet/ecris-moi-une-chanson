@@ -10,14 +10,47 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export type VibeType = 'Triste' | 'Romantique' | 'Drôle' | 'Rap' | 'Mystère';
+export type VibeType =
+    | 'La beauté et la tranquillité de la nature.'
+    | 'La douleur et la résilience face à la perte.'
+    | "La joie et l'innocence retrouvées de l'enfance."
+    | "La complexité des relations amoureuses à l'ère numérique."
+    | "Le voyage intérieur vers l'acceptation de soi."
+    | "La quête incessante de liberté face à l'oppression."
+    | 'La célébration de la diversité culturelle et la fusion des mondes.'
+    | "La transition de l'adolescence à l'âge adulte, avec ses défis et découvertes."
+    | "La mélodie nostalgique des souvenirs d'été."
+    | "L'exploration des regrets et des 'et si' dans nos choix de vie."
+    | 'La gratitude pour les petites choses du quotidien.'
+    | 'La confrontation entre la réalité moderne et les traditions anciennes.'
+    | "La merveille de la découverte lors d'un premier amour."
+    | "La force trouvée dans la solidarité et l'unité communautaire."
+    | "L'émerveillement face à l'immensité de l'univers."
+    | "La recherche d'un but ou d'une signification dans un monde chaotique.";
 
 interface DropDownProps {
     vibe: VibeType;
     setVibe: (vibe: VibeType) => void;
 }
 
-let vibes: VibeType[] = ['Triste', 'Romantique', 'Drôle', 'Rap', 'Mystère'];
+let vibes: VibeType[] = [
+    'La beauté et la tranquillité de la nature.',
+    'La douleur et la résilience face à la perte.',
+    "La joie et l'innocence retrouvées de l'enfance.",
+    "La complexité des relations amoureuses à l'ère numérique.",
+    "Le voyage intérieur vers l'acceptation de soi.",
+    "La quête incessante de liberté face à l'oppression.",
+    'La célébration de la diversité culturelle et la fusion des mondes.',
+    "La transition de l'adolescence à l'âge adulte, avec ses défis et découvertes.",
+    "La mélodie nostalgique des souvenirs d'été.",
+    "L'exploration des regrets et des 'et si' dans nos choix de vie.",
+    'La gratitude pour les petites choses du quotidien.',
+    'La confrontation entre la réalité moderne et les traditions anciennes.',
+    "La merveille de la découverte lors d'un premier amour.",
+    "La force trouvée dans la solidarité et l'unité communautaire.",
+    "L'émerveillement face à l'immensité de l'univers.",
+    "La recherche d'un but ou d'une signification dans un monde chaotique.",
+];
 
 export default function DropDown({ vibe, setVibe }: DropDownProps) {
   return (
