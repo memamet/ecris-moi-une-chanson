@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useRef, useState, ChangeEvent } from 'react';
 import { Toaster, toast } from 'react-hot-toast';
 import DropDown, { VibeType } from '../components/DropDown';
 import Footer from '../components/Footer';
@@ -11,10 +11,10 @@ import { useChat } from 'ai/react';
 import SquigglyLines from '../components/SquigglyLines';
 
 export default function Page() {
-    const [bio, setBio] = useState('');
     const [vibe, setVibe] = useState<VibeType>(
         'La beauté et la tranquillité de la nature.'
     );
+    const bio = useRef<string | null>(null);
     const bioRef = useRef<null | HTMLDivElement>(null);
 
     const scrollToBios = () => {
@@ -27,7 +27,7 @@ export default function Page() {
         useChat({
             body: {
                 vibe,
-                bio,
+                bio: bio.current,
             },
             onResponse() {
                 scrollToBios();
@@ -35,8 +35,12 @@ export default function Page() {
         });
 
     const onSubmit = (e: any) => {
-        setBio(input);
         handleSubmit(e);
+    };
+
+    const handleInput = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        bio.current = e.target.value;
+        handleInputChange(e);
     };
 
     const lastMessage = messages[messages.length - 1];
@@ -64,6 +68,7 @@ export default function Page() {
             // Check if the line is a section name (e.g., "Couplet 1:")
             if (line.endsWith(':')) {
                 if (currentSection) {
+                    // @ts-ignore
                     lyrics.sections.push(currentSection);
                 }
                 currentSection = {
@@ -73,16 +78,19 @@ export default function Page() {
             } else {
                 // Otherwise, treat the line as a lyric line
                 if (currentSection) {
+                    // @ts-ignore
                     currentSection.lines.push(line);
                 }
             }
         }
         if (currentSection) {
+            // @ts-ignore
             lyrics.sections.push(currentSection);
         }
         return lyrics;
     }
 
+    // @ts-ignore
     const lyrics = formatLyrics(generatedBios);
 
     return (
@@ -131,7 +139,7 @@ export default function Page() {
                     </div>
                     <textarea
                         value={input}
-                        onChange={handleInputChange}
+                        onChange={handleInput}
                         rows={4}
                         className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
                         placeholder={'Ex: Plage / Rugby / Montagne / Métro'}
@@ -202,26 +210,41 @@ export default function Page() {
                                     }}
                                     key={generatedBios}>
                                     <h3 className="sm:text-2xl text-xl font-bold text-slate-900 mx-auto">
-                                        {lyrics.title}
+                                        {
+                                            // @ts-ignore
+                                            lyrics.title
+                                        }
                                     </h3>
                                     <br />
-                                    {lyrics.sections.map((section, idx) => (
-                                        <div key={idx} className="section">
-                                            <h2 className="text-left text-slate-900 font-bold">
-                                                {section.name}
-                                            </h2>
-                                            {section.lines.map(
-                                                (line, lineIdx) => (
-                                                    <p
-                                                        className="text-left"
-                                                        key={lineIdx}>
-                                                        {line}
-                                                    </p>
-                                                )
-                                            )}
-                                            <br />
-                                        </div>
-                                    ))}
+
+                                    {
+                                        // @ts-ignore
+                                        lyrics.sections.map((section, idx) => (
+                                            <div key={idx} className="section">
+                                                <h2 className="text-left text-slate-900 font-bold">
+                                                    {
+                                                        // @ts-ignore
+                                                        section.name
+                                                    }
+                                                </h2>
+
+                                                {
+                                                    // @ts-ignore
+                                                    section.lines.map(
+                                                        // @ts-ignore
+                                                        (line, lineIdx) => (
+                                                            <p
+                                                                className="text-left"
+                                                                key={lineIdx}>
+                                                                {line}
+                                                            </p>
+                                                        )
+                                                    )
+                                                }
+                                                <br />
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
                         </>

@@ -13,8 +13,6 @@ export const runtime = 'edge';
 export async function POST(req: Request) {
   const { vibe, bio } = await req.json();
 
-  console.log({ vibe, bio });
-
   // Ask OpenAI for a streaming completion given the prompt
   const response = await openai.createChatCompletion({
       model: 'gpt-4',
