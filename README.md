@@ -1,4 +1,4 @@
-# This project generates song lyrics for you using AIx
+# This project generates song lyrics for you using AI
 
 [![Twitter Bio Generator](./public/screenshot.png)](https://www.twitterbio.io)
 
